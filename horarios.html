@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegir Horarios de Cursos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .selector {
+            margin: 20px 0;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        select, button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .resultados {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Elegir Horarios de Cursos</h1>
+    <div class="selector">
+        <label for="dia">Selecciona un día:</label>
+        <select id="dia">
+            <option value="lunes">Lunes</option>
+            <option value="martes">Martes</option>
+            <option value="miércoles">Miércoles</option>
+            <option value="jueves">Jueves</option>
+            <option value="viernes">Viernes</option>
+            <option value="sábado">Sábado</option>
+        </select>
+        <label for="hora">Selecciona un horario:</label>
+        <select id="hora">
+            <!-- Bloques de horarios: 7 a 12, 13 a 17, 18 a 21:30 -->
+            <option value="07:00-08:00">07:00 - 08:00</option>
+            <option value="08:00-09:00">08:00 - 09:00</option>
+            <option value="09:00-10:00">09:00 - 10:00</option>
+            <option value="10:00-11:00">10:00 - 11:00</option>
+            <option value="11:00-12:00">11:00 - 12:00</option>
+            <option value="13:00-14:00">13:00 - 14:00</option>
+            <option value="14:00-15:00">14:00 - 15:00</option>
+            <option value="15:00-16:00">15:00 - 16:00</option>
+            <option value="16:00-17:00">16:00 - 17:00</option>
+            <option value="18:00-19:00">18:00 - 19:00</option>
+            <option value="19:00-20:00">19:00 - 20:00</option>
+            <option value="20:00-21:00">20:00 - 21:00</option>
+            <option value="21:00-21:30">21:00 - 21:30</option>
+        </select>
+        <label for="curso">Selecciona un curso:</label>
+        <select id="curso">
+            <option value="auditoria">Auditoría Financiera</option>
+            <option value="finanzas">Finanzas</option>
+            <option value="analisis">Análisis e Interpretación de Estados Financieros</option>
+            <option value="filosofia">Filosofía y Ética</option>
+            <option value="ingles">Inglés</option>
+        </select>
+        <button onclick="guardarSeleccion()">Guardar Selección</button>
+    </div>
+    <div class="resultados" id="resultados">
+        <h2>Selecciones:</h2>
+        <ul id="lista-selecciones">
+            <!-- Las selecciones se mostrarán aquí -->
+        </ul>
+    </div>
+
+    <script>
+        function guardarSeleccion() {
+            const dia = document.getElementById('dia').value;
+            const hora = document.getElementById('hora').value;
+            const curso = document.getElementById('curso').value;
+
+            const lista = document.getElementById('lista-selecciones');
+            const nuevoItem = document.createElement('li');
+            nuevoItem.textContent = `Curso: ${curso}, Día: ${dia}, Horario: ${hora}`;
+            lista.appendChild(nuevoItem);
+        }
+    </script>
+</body>
+</html>
